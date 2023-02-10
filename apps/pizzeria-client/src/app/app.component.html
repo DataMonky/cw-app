@@ -1,1 +1,9 @@
-<cw-app-nx-welcome></cw-app-nx-welcome>
+<h1>Welcome pizzeria-client 👋</h1>
+<!-- This nav gives you links to click, which tells the router which route to use (defined in the routes constant in  AppRoutingModule) -->
+<nav>
+  <ul>
+    <li><a routerLink="/home" routerLinkActive="active" ariaCurrentWhenActive="page">Home</a></li>
+    <li><a routerLink="/total-price" routerLinkActive="active" ariaCurrentWhenActive="page">Total Price</a></li>
+  </ul>
+</nav>
+<router-outlet></router-outlet>
