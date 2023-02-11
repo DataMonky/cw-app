@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@cw-app/api": ["libs/api/src/index.ts"],
+      "@cw-app/contacts": ["libs/contacts/src/index.ts"],
       "@cw-app/mocked-data": ["libs/mocked-data/src/index.ts"],
       "@cw-app/shared-ui": ["libs/shared-ui/src/index.ts"]
     }

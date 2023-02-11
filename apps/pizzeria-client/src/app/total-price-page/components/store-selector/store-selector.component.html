@@ -1,0 +1,17 @@
+<form [formGroup]="storeSelectionForm" novalidate>
+
+    <div class="form-group">
+        <label for="store">Select Store</label>
+        <ng-select [items]="stores"
+                   [selectOnTab]="true"
+                   bindValue="value"
+                   bindLabel="name"
+                   labelForId="store"
+                   placeholder="Select store"
+                   formControlName="store"
+                   (change)="onChange($event)">
+        </ng-select>
+        <br>
+    </div>
+
+</form>

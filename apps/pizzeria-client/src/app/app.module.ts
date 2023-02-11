@@ -7,16 +7,22 @@ import { TotalPricePageComponent } from './total-price-page/total-price-page.com
 import { HomePageComponent } from './home-page/home-page.component';
 
 import { AppRoutingModule } from './app-routing.module';
+import { StoreSelectorComponent } from './total-price-page/components/store-selector/store-selector.component';
+import { CwSharedUiModule } from '@cw-app/shared-ui';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { NgOptionHighlightModule } from '@ng-select/ng-option-highlight';
+
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NotFoundPageComponent,
-    TotalPricePageComponent,
-    HomePageComponent,
-  ],
-  imports: [BrowserModule, AppRoutingModule],
-  providers: [],
-  bootstrap: [AppComponent],
+    declarations: [
+        AppComponent,
+        NotFoundPageComponent,
+        TotalPricePageComponent,
+        HomePageComponent,
+        StoreSelectorComponent,
+    ],
+    providers: [],
+    bootstrap: [AppComponent],
+    imports: [BrowserModule, AppRoutingModule, CwSharedUiModule]
 })
 export class AppModule {}
