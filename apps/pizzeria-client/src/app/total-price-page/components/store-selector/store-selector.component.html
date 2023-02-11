@@ -4,12 +4,13 @@
         <label for="store">Select Store</label>
         <ng-select [items]="stores"
                    [selectOnTab]="true"
-                   bindValue="value"
+                   bindValue="id"
                    bindLabel="name"
                    labelForId="store"
                    placeholder="Select store"
                    formControlName="store"
-                   (change)="onChange($event)">
+                   (change)="onChange($event)"
+                   (clear)="onClear()">
         </ng-select>
         <br>
     </div>

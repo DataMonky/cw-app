@@ -11,6 +11,7 @@ import { StoreSelectorComponent } from './total-price-page/components/store-sele
 import { CwSharedUiModule } from '@cw-app/shared-ui';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { NgOptionHighlightModule } from '@ng-select/ng-option-highlight';
+import { PizzaProductListComponent } from './total-price-page/components/pizza-product-list/pizza-product-list.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { NgOptionHighlightModule } from '@ng-select/ng-option-highlight';
         TotalPricePageComponent,
         HomePageComponent,
         StoreSelectorComponent,
+        PizzaProductListComponent,
     ],
     providers: [],
     bootstrap: [AppComponent],

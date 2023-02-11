@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NameValuePair } from '@cw-app/contacts';
+import { StoreViewModel } from '../../view-models';
 
 @Component({
   selector: 'cw-app-store-selector',
@@ -9,8 +9,10 @@ import { NameValuePair } from '@cw-app/contacts';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class StoreSelectorComponent implements OnInit {
-  @Input() stores: NameValuePair[] = [];
-  @Output() selected = new EventEmitter<NameValuePair>();
+  @Input() stores: StoreViewModel[] = [];
+
+  @Output() selected = new EventEmitter<StoreViewModel>();
+  @Output() cleared = new EventEmitter<void>();
 
   storeSelectionForm!: FormGroup;
 
@@ -23,8 +25,12 @@ export class StoreSelectorComponent implements OnInit {
       });
   }
 
-  onChange(value: NameValuePair) {
+  onChange(value: StoreViewModel) {
     if (value)
       this.selected.emit(value);
+  }
+
+  onClear() {
+    this.cleared.emit();
   }
 }

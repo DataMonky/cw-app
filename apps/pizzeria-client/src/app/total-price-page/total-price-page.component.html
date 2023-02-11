@@ -1,3 +1,4 @@
 <div>
-    <cw-app-store-selector [stores]="(stores$ | async) || []" (selected)="onSelected($event)"></cw-app-store-selector>
+    <cw-app-store-selector [stores]="(stores$ | async) || []" (selected)="onStoreSelected($event)" (cleared)="onStoreSelectionCleared()"></cw-app-store-selector>
+    <cw-app-pizza-product-list *ngIf="showPizzaProducts$ | async" [pizzaProducts]="pizzaProducts"></cw-app-pizza-product-list>
 </div>

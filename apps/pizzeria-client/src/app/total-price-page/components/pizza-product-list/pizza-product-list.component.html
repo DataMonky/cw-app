@@ -1,0 +1,18 @@
+<table class="table table-striped" *ngIf="pizzaProducts && pizzaProducts.length > 0">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Pizza</th>
+        <th scope="col">Toppings</th>
+        <th scope="col">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pizzaProduct of pizzaProducts; index as i">
+        <th scope="row">{{i + 1}}</th>
+        <td>{{pizzaProduct.name}} </td>
+        <td>{{pizzaProduct.toppingSummary}}</td>
+        <td>${{pizzaProduct.price}}</td>
+      </tr>
+    </tbody>
+  </table>
