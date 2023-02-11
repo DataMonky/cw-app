@@ -1,20 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NameValuePair } from '@cw-app/contacts';
+import { Observable } from 'rxjs';
+import { TotalPriceService } from './services/total-price.service';
 
 @Component({
   selector: 'cw-app-total-price-page',
   templateUrl: './total-price-page.component.html',
   styleUrls: ['./total-price-page.component.scss'],
 })
-export class TotalPricePageComponent implements OnInit {
-  stores: NameValuePair[] = [
-    { value: '1', name: 'Preston' },
-    { value: '2', name: 'Southbank' }
-];
+export class TotalPricePageComponent {
+  stores$: Observable<NameValuePair[]> = this.totalPriceService.getStores();
 
-  ngOnInit() { 
-    console.log('stores: ', this.stores);
-  }
+  constructor(private totalPriceService: TotalPriceService) {}
 
   onSelected(store: NameValuePair) {
     console.log('on selected: ', store);
