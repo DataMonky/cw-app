@@ -1,4 +1,10 @@
-<div>
+<div class="d-felx">
+    <div class="d-flex justify-content-center">
+        <div>
+            <h3>Total Price: ${{totalPrice$ | async}}</h3>
+        </div> 
+    </div>
+
     <cw-app-store-selector [stores]="(stores$ | async) || []" (selected)="onStoreSelected($event)" (cleared)="onStoreSelectionCleared()"></cw-app-store-selector>
     <cw-app-pizza-product-list *ngIf="showPizzaProducts$ | async" [pizzaProducts]="pizzaProducts" (selected)="onPizzaSelected($event)"></cw-app-pizza-product-list>
     <cw-app-pizza-product [pizzaProduct]="selectedPizzaProduct" (added)="onSelectedPizzaProductAdded($event)" (cancelled)="onSelectPizzaCancelled()"></cw-app-pizza-product>

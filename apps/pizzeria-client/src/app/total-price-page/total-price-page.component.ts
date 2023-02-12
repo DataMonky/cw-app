@@ -23,6 +23,8 @@ export class TotalPricePageComponent implements OnDestroy {
 
   constructor(private totalPriceService: TotalPriceService) {}
 
+  totalPrice$ = this.totalPriceService.totalPrice$;
+
   onStoreSelected(store: StoreViewModel) {
     this.subscriptions.add(
       this.totalPriceService
@@ -37,6 +39,7 @@ export class TotalPricePageComponent implements OnDestroy {
 
   onStoreSelectionCleared() {
     this.pizzaProducts = [];
+    this.totalPriceService.reset();
   }
 
   onPizzaSelected(pizzaProduct: PizzaProductViewModel) {
@@ -44,14 +47,14 @@ export class TotalPricePageComponent implements OnDestroy {
   }
   
   onSelectedPizzaProductAdded(selectedPurchaseablePizzaProduct: PurchaseablePizzaProduct){
-    console.log('selected pizza product: ', selectedPurchaseablePizzaProduct);
     this.selectedPizzaProduct = null;
+    this.totalPriceService.addPurchaseablePizzaProduct(selectedPurchaseablePizzaProduct);
   }
 
   onSelectPizzaCancelled() {
     this.selectedPizzaProduct = null;
   }
-  
+
   ngOnDestroy(): void {
     this.subscriptions.unsubscribe();
   }

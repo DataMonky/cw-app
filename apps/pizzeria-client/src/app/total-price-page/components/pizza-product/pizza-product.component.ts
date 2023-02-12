@@ -29,7 +29,7 @@ export class PizzaProductComponent implements OnInit, OnChanges {
   @Output() added = new EventEmitter<PurchaseablePizzaProduct>();
   @Output() cancelled = new EventEmitter<void>();
 
-  pizzaQuantity = 0;
+  pizzaQuantity = 1;
   customiseableToppings: ToppingProductViewModel[] = [];
   selectedToppings: ToppingProductViewModel[] = [];
 
