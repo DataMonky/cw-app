@@ -7,12 +7,8 @@ import { TotalPricePageComponent } from './total-price-page/total-price-page.com
 import { HomePageComponent } from './home-page/home-page.component';
 
 import { AppRoutingModule } from './app-routing.module';
-import { StoreSelectorComponent } from './total-price-page/components/store-selector/store-selector.component';
 import { CwSharedUiModule } from '@cw-app/shared-ui';
-import { NgSelectModule } from '@ng-select/ng-select';
-import { NgOptionHighlightModule } from '@ng-select/ng-option-highlight';
-import { PizzaProductListComponent } from './total-price-page/components/pizza-product-list/pizza-product-list.component';
-
+import { COMPONENTS as TotalPricePageComponents } from './total-price-page/components';
 
 @NgModule({
     declarations: [
@@ -20,8 +16,7 @@ import { PizzaProductListComponent } from './total-price-page/components/pizza-p
         NotFoundPageComponent,
         TotalPricePageComponent,
         HomePageComponent,
-        StoreSelectorComponent,
-        PizzaProductListComponent,
+        TotalPricePageComponents
     ],
     providers: [],
     bootstrap: [AppComponent],

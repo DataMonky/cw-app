@@ -4,6 +4,7 @@ import {
   Observable,
   Subscription,
 } from 'rxjs';
+import { PurchaseablePizzaProduct } from './models';
 import { TotalPriceService } from './services/total-price.service';
 import { PizzaProductViewModel, StoreViewModel } from './view-models';
 
@@ -18,6 +19,7 @@ export class TotalPricePageComponent implements OnDestroy {
   private showPizzaProductsSubj = new BehaviorSubject<boolean>(false);
   showPizzaProducts$ = this.showPizzaProductsSubj.asObservable();
   private subscriptions: Subscription = new Subscription();
+  selectedPizzaProduct: PizzaProductViewModel | null = null;
 
   constructor(private totalPriceService: TotalPriceService) {}
 
@@ -37,6 +39,19 @@ export class TotalPricePageComponent implements OnDestroy {
     this.pizzaProducts = [];
   }
 
+  onPizzaSelected(pizzaProduct: PizzaProductViewModel) {
+    this.selectedPizzaProduct = pizzaProduct;
+  }
+  
+  onSelectedPizzaProductAdded(selectedPurchaseablePizzaProduct: PurchaseablePizzaProduct){
+    console.log('selected pizza product: ', selectedPurchaseablePizzaProduct);
+    this.selectedPizzaProduct = null;
+  }
+
+  onSelectPizzaCancelled() {
+    this.selectedPizzaProduct = null;
+  }
+  
   ngOnDestroy(): void {
     this.subscriptions.unsubscribe();
   }

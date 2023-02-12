@@ -1,0 +1,25 @@
+<div class="card" *ngIf="pizzaProduct">
+    <div class="card-body">
+        <h5 class="card-title">{{ pizzaProduct.name }}</h5>
+        <p class="card-text">${{pizzaProduct.price}}</p>
+        <p class="card-text">Toppings: {{pizzaProduct.toppingSummary}}</p>
+        <cw-app-minus-plus-number-input [min]="0" (selected)="quantitySelected($event)"></cw-app-minus-plus-number-input>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Extra toppings</h5>
+    </div>
+    <form [formGroup]="selectedToppingsFormGroup" (ngSubmit)="onSubmit()">
+        <ul class="list-group" *ngIf="pizzaProduct.customiseableToppings.length > 0">
+            <li *ngFor="let topping of pizzaProduct.customiseableToppings; index as i" class="list-group-item">
+              <input class="form-check-input me-1" type="checkbox" [value]="topping.id" id="checkbox{{i}}" (change)="onCheckboxChange($event)">
+              <label class="form-check-label" for="checkbox{{i}}">${{topping.price}} {{topping.name}}</label>
+            </li>
+          </ul>
+          <div class="card-body">
+            <button class="btn-outline" type="button" (click)="onCancel()">cancel</button>
+            <button class="btn-primary" type="submit">Add</button>
+          </div>
+    </form>
+
+</div>
+

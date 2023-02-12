@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { faPizzaSlice } from '@fortawesome/free-solid-svg-icons';
 import { PizzaProductViewModel } from '../../view-models';
 
 @Component({
@@ -9,4 +10,12 @@ import { PizzaProductViewModel } from '../../view-models';
 })
 export class PizzaProductListComponent {
   @Input() pizzaProducts: PizzaProductViewModel[] = [];
+
+  @Output() selected = new EventEmitter<PizzaProductViewModel>();
+
+  faPizzaSlice = faPizzaSlice;
+  
+  select(pizzaProduct: PizzaProductViewModel) {
+    this.selected.emit(pizzaProduct);
+  }
 }

@@ -5,6 +5,7 @@
         <th scope="col">Pizza</th>
         <th scope="col">Toppings</th>
         <th scope="col">Price</th>
+        <th score="col"></th>
       </tr>
     </thead>
     <tbody>
@@ -13,6 +14,7 @@
         <td>{{pizzaProduct.name}} </td>
         <td>{{pizzaProduct.toppingSummary}}</td>
         <td>${{pizzaProduct.price}}</td>
+        <td><button class="primary" (click)="select(pizzaProduct)"><fa-icon [icon]="faPizzaSlice"></fa-icon></button></td>
       </tr>
     </tbody>
   </table>
