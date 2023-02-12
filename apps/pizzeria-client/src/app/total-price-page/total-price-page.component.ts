@@ -39,6 +39,7 @@ export class TotalPricePageComponent implements OnDestroy {
 
   onStoreSelectionCleared() {
     this.pizzaProducts = [];
+    this.selectedPizzaProduct = null;
     this.totalPriceService.reset();
   }
 

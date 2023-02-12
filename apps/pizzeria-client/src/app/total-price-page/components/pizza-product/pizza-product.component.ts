@@ -73,6 +73,7 @@ export class PizzaProductComponent implements OnInit, OnChanges {
 
   onCancel() {
     this.cancelled.emit();
+    this.reset();
   }
 
   onSubmit() {
@@ -85,6 +86,14 @@ export class PizzaProductComponent implements OnInit, OnChanges {
     }
 
     this.added.emit(purchaseablePizzaProduct);
+    this.reset();
+  }
+
+  private reset() {
+    this.pizzaQuantity = 1;
+    this.customiseableToppings = [];
+    this.selectedToppings = [];
+    this.toppingsFormArray.reset();
   }
 
   private getPurchaseablePizza(pizzaProduct: PizzaProductViewModel): PurchaseableItem {
